@@ -9,11 +9,10 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/tailwind.css', 
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
   ],
   app: {
     head: {
-      title: 'Cologne Zoo',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
