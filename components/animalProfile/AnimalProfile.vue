@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import type { WeeklyChecks } from '@/types'
 import AnimalInfoRender from '../animalInfoRender/AnimalInfoRender.vue';
+import { useAsset } from '@/composables/handleImage'
+
 
 const animals = useAnimals()
 const routeObject = useRoute()
@@ -22,6 +23,7 @@ const weeklyChecks: WeeklyChecks = {
   Sunday: false
 };
 
+
 </script>
 
 <template>
@@ -32,7 +34,8 @@ const weeklyChecks: WeeklyChecks = {
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <img v-if="animal.image" :src="`/_nuxt/assets/${animal?.image}`" alt="Animal Image" class="w-full h-64 object-cover rounded mb-6">
+          <img v-if="animal.image" :src="useAsset(animal.species + '.jpg')" alt="Animal Image" class="w-full h-64 object-cover rounded mb-6">
+
         </div>
         <div>
  
