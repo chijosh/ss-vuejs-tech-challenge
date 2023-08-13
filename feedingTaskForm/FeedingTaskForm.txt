@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div>
       <h2>Add a Feeding Task</h2>
       <form @submit.prevent="addTask">
@@ -35,4 +35,4 @@
     };
     props.addTaskCallback(task);
   }
-  </script>
+  </script> -->

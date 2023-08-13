@@ -1,18 +1,42 @@
 <script setup lang="ts">
-import './assets/css/tailwind.css';
-import type { Animal } from './types';
+import '../assets/css/tailwind.css';
+import { onMounted } from 'vue';
+
+import type { Animal } from '../types';
 import Swal from 'sweetalert2';
 
-import FeedingTaskForm from './components/feedingTaskForm/FeedingTaskForm.vue';  
-import FeedingOverview from './components/feedingOverview/FeedingOverview.vue';  
+import FeedingOverview from '../components/feedingOverview/FeedingOverview.vue';  
 
 const animals: Array<Animal> = await $fetch('/api/animals');
-// const feedingTasks: Array<FeedingTask> = await $fetch('/api/feedingTasks'); // Fetching feeding tasks data. Assuming there's an API endpoint for it.
 
-Swal.fire({
-  text: 'Get wrecked cologne zoo!',
-  icon: 'success',
-  confirmButtonText: `Let's go`,
+// Using useState hook to keep the animals details consistent across the application.
+const stateAnimal = useAnimals()
+
+stateAnimal.value.push(...animals)
+
+const showPopupOnce = () => {
+  const popupShownKey = 'welcome_popup_shown';
+
+  try {
+    const popupShown = localStorage.getItem(popupShownKey);
+    
+    if (!popupShown) {
+      Swal.fire({
+        text: 'Get wrecked cologne zoo!',
+        icon: 'success',
+        confirmButtonText: `Let's go`,
+      });
+      localStorage.setItem(popupShownKey, 'true');
+    }
+  } catch (error) {
+    console.error('Failed to access localStorage:', error);
+    // TODO: Optionally: Handle this error in a user-friendly way, maybe with another popup or notification.
+  }
+  
+}
+
+onMounted(() => {
+  showPopupOnce();
 });
 </script>
 
@@ -31,12 +55,6 @@ Swal.fire({
         become more frequent on the past, so be on the lookout.
       </p>
     </div>
-    
-    <!-- Introducing Feeding Task Planner -->
-    <section class="mt-6 mb-4">
-      <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Plan a Feeding Task:</h3>
-      <FeedingTaskForm />
-    </section>
 
     <!-- Introducing Feeding Task Overview -->
     <section class="mt-6 mb-4">

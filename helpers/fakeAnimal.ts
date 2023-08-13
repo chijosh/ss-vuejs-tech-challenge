@@ -6,11 +6,12 @@ import type { Animal, Fruit, Gender } from '../types'
 export const fakeAnimal = (): Animal => {
   const gender = faker.helpers.arrayElement(['male', 'female']) as Gender
   const favouriteFruit = faker.helpers.arrayElement(['banana', 'apple', 'cherry']) as Fruit
+  const animalSpecie = faker.animal.type()
 
   return {
     id: faker.datatype.uuid(),
     name: faker.name.firstName(gender as GenderType),
-    species: faker.animal.type(),
+    species: animalSpecie,
     birthdate: faker.date.past(25),
     weight: faker.datatype.float({
       min: 20,
@@ -24,5 +25,6 @@ export const fakeAnimal = (): Animal => {
     }),
     gender,
     favouriteFruit,
+    image: `images/${animalSpecie}.jpg`
   }
 }

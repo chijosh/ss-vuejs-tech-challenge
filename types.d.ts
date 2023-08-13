@@ -14,10 +14,18 @@ export interface Animal {
   weight: Kilogram
   height: Meter
   favouriteFruit: Fruit
+  image?: string;
+  additionalInfo?: Record<string, any>;
 }
 
 export type FeedingTask = {
   animalId: string;
   day: Date;
   fruit: string;
+}
+
+type WeekDays = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+
+interface WeeklyChecks {
+  [day in WeekDays]: boolean;
 }

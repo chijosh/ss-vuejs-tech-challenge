@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { fakeAnimal } from '../../helpers/fakeAnimal';
 import type { Animal } from '../../types';
 

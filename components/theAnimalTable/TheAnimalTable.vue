@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
-
 import type { Animal } from '@/types'
 import Swal from 'sweetalert2'
 import { calculateAgeInYears, calculateFoodRequirement } from '@/composables/helpers'
@@ -73,6 +72,7 @@ const openModal = (index: string) => {
         <th class="hidden md:table-cell py-2 px-3 md:px-6 text-center">Age (yrs)</th>
         <th class="hidden md:table-cell py-2 px-3 md:px-6 text-center">Weight (kg)</th>
         <th class="py-2 px-3 md:px-6 text-center">Details</th>
+        <th class="py-2 px-3 md:px-6 text-center">Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -84,10 +84,15 @@ const openModal = (index: string) => {
         <td class="hidden md:table-cell py-2 px-3 md:px-6 text-center">{{ calculateAgeInYears(birthdate) }}</td>
         <td class="hidden md:table-cell py-2 px-3 md:px-6 text-center">{{ weight }}</td>
         <td class="py-2 px-3 md:px-6 text-center">
-            <button @click="openModal(id)"  class="text-gray-700 hover:text-gray-900 transition duration-300 focus:outline-none">
-              View more <font-awesome-icon :icon="['fasr', 'eye']" size="lg" style="color: #0f51c2;" />
-            </button>
-          </td>
+          <button @click="openModal(id)"  class="text-gray-700 hover:text-gray-900 transition duration-300 focus:outline-none">
+            View more <font-awesome-icon :icon="['fasr', 'eye']" size="lg" style="color: #0f51c2;" />
+          </button>
+        </td>
+         <td class="py-2 px-3 md:px-6 text-center">
+          <nuxt-link :to="`/animal/${id}`">
+            <button><font-awesome-icon :icon="['fasr', 'pen-to-square']" size="lg" style="color: #0f51c2;" /></button>
+          </nuxt-link>
+        </td> 
         </tr>
       </tbody>
     </table>

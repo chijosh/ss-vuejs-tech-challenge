@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div>
       <h2>Upcoming Feeding Tasks</h2>
       <div v-for="day, tasks in groupedTasks" :key="day">
@@ -25,4 +25,4 @@
     // Logic to group tasks by day, calculate food amount, and display in the required format
   });
   </script>
-  
+   -->

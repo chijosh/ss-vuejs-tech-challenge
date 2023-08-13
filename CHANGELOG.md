@@ -1,6 +1,19 @@
-# Cologne Zoo v0.0.3 - (12.08.2023)
+# Cologne Zoo v0.0.8 - (13.08.2023)
 
 ### Changelog
+
+## [v0.0.8] - 13.08.2023
+### Added
+- Feature to display a welcome popup ONLY once to users when they visit the home page. The state is maintained using `localStorage`.
+- New `showPopupOnce` method to handle popup and localStorage logic.
+- Lifecycle hook `onMounted` to initiate the popup logic when the component is mounted.
+- Error handling for potential `localStorage` issues in the `showPopupOnce` method. If there's an error accessing `localStorage`, it's caught and logged without breaking the application.
+
+### Changed
+- Updated the `AnimalTable` component to integrate the popup functionality.
+
+### Notes
+- Though the error is logged, consider adding more user-friendly notifications for such scenarios in future updates.
 
 ## [v0.0.7] - 12.08.2023
 ### Added
