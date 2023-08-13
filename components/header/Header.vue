@@ -1,14 +1,14 @@
 <template>
   <header class="bg-green-900 shadow-md text-white">
     <div class="container mx-auto px-4 py-2 flex items-center justify-between">
-      <a href="/">
+      <nuxt-link href="/">
         <img class="h-10 w-auto" src="~/assets/images/logo.png" alt="Logo" />
-      </a>
+      </nuxt-link>
       <nav >
         <ul class="hidden md:flex space-x-4">
-          <li><a class="hover:text-green-300 transition" href="/">Home</a></li>
-          <li><a class="hover:text-green-300 transition" href="/about">About</a></li>
-          <li><a class="hover:text-green-300 transition" href="/contact">Contact</a></li>
+          <li><nuxt-link class="hover:text-green-300 transition" href="/">Home</nuxt-link></li>
+          <li><nuxt-link class="hover:text-green-300 transition" href="/calendar">Calendar</nuxt-link></li>
+          <li><nuxt-link class="hover:text-green-300 transition" href="/about">About</nuxt-link></li>
         </ul>
       </nav>
       <!-- Mobile Menu Icon -->
@@ -25,9 +25,9 @@
       <!-- Mobile Menu Dropdown -->
       <div v-if="isMenuOpen" class="absolute top-14 left-0 w-full bg-green-600 z-10 md:hidden">
         <ul class="space-y-2 py-2">
-          <li><a class="block px-4 py-2 hover:text-green-300 transition" href="/">Home</a></li>
-          <li><a class="block px-4 py-2 hover:text-green-300 transition" href="/about">About</a></li>
-          <li><a class="block px-4 py-2 hover:text-green-300 transition" href="/contact">Contact</a></li>
+          <li><nuxt-link class="block px-4 py-2 hover:text-green-300 transition" href="/">Home</nuxt-link></li>
+          <li><nuxt-link class="block px-4 py-2 hover:text-green-300 transition" href="/calendar">Calendar</nuxt-link></li>
+          <li><nuxt-link class="block px-4 py-2 hover:text-green-300 transition" href="/about">About</nuxt-link></li>
         </ul>
       </div>
     </div>
@@ -46,5 +46,11 @@ export default {
 </script>
 
 <style>
-
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* ensures the header spans the full width of the viewport */
+  z-index: 1000; /* a high z-index to ensure the header stays on top of other content */
+}
 </style>

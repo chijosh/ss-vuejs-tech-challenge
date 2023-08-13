@@ -1,18 +1,27 @@
 <script setup lang="ts">
 import '../assets/css/tailwind.css';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import type { Animal } from '../types';
 import Swal from 'sweetalert2';
 
-import FeedingOverview from '../components/feedingOverview/FeedingOverview.vue';  
+import FeedingOverview from '../components/feedingOverview/DailyFeedingOverview.vue';  
 
-const animals: Array<Animal> = await $fetch('/api/animals');
-
-// Using useState hook to keep the animals details consistent across the application.
 const stateAnimal = useAnimals()
 
-stateAnimal.value.push(...animals)
+onMounted(async () => {
+  try {
+    if(stateAnimal.value.length === 0){
+      const animals: Array<Animal> = await $fetch('/api/animals');
+      stateAnimal.value.push(...animals)
+    }
+
+    showPopupOnce();
+  } catch (error) {
+    console.error('Failed to fetch animals:', error);
+  }
+});
+
 
 const showPopupOnce = () => {
   const popupShownKey = 'welcome_popup_shown';
@@ -34,10 +43,6 @@ const showPopupOnce = () => {
   }
   
 }
-
-onMounted(() => {
-  showPopupOnce();
-});
 </script>
 
 <template>
@@ -63,6 +68,6 @@ onMounted(() => {
     </section>
 
     <h2 class="text-xl md:text-2xl lg:text-3xl mt-8 mb-4 font-semibold">Our (lovely) Animals:</h2>
-    <the-animal-table :animals="animals" />
+    <the-animal-table :animals="stateAnimal" />
   </div>
 </template>

@@ -23,12 +23,16 @@ const weeklyChecks: WeeklyChecks = animal?.weeklyChecks ||  {
   Sunday: false
 };
 
-console.log({animal});
-
 
 const handleCheckboxChange = (day: string) => {
   console.log(`Checkbox for ${day} was changed to ${weeklyChecks[day]}`);
-  // You can add more logic here, like making an API call.
+  
+  const animalIndex = animals.value.findIndex(a => a.id === animal?.id);
+
+  
+  if (animalIndex !== -1) {
+  animals.value[animalIndex].weeklyChecks[day] = weeklyChecks[day];
+}
 }
 
 </script>

@@ -20,6 +20,7 @@ const displayedAnimals = computed(() => {
 });
 
 const animalsToFeedToday = computed(() => {
+
   return animals.value.filter(animal => animal.weeklyChecks && animal.weeklyChecks[today]);
 });
 
