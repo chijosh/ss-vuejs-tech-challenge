@@ -4,6 +4,7 @@
 
 ## [v0.0.8] - 13.08.2023
 ### Added
+- Bumped `nuxt.js` version from rc.
 - Feature to display a welcome popup ONLY once to users when they visit the home page. The state is maintained using `localStorage`.
 - New `showPopupOnce` method to handle popup and localStorage logic.
 - Lifecycle hook `onMounted` to initiate the popup logic when the component is mounted.
