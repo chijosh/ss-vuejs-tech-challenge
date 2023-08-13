@@ -13,7 +13,7 @@ const animal = animals.value.find(animal => animal.id === param._animalsId);
     console.error('Animal not found!');
   } 
 
-const weeklyChecks: WeeklyChecks = {
+const weeklyChecks: WeeklyChecks = animal?.weeklyChecks ||  {
   Monday: false,
   Tuesday: false,
   Wednesday: false,
@@ -23,6 +23,13 @@ const weeklyChecks: WeeklyChecks = {
   Sunday: false
 };
 
+console.log({animal});
+
+
+const handleCheckboxChange = (day: string) => {
+  console.log(`Checkbox for ${day} was changed to ${weeklyChecks[day]}`);
+  // You can add more logic here, like making an API call.
+}
 
 </script>
 
@@ -50,24 +57,17 @@ const weeklyChecks: WeeklyChecks = {
 
       </div>
 
-      <div v-if="animal.additionalInfo">
-        <h2 class="text-xl font-semibold mb-4 text-gray-800">Additional Information</h2>
-        <p v-for="(value, key) in animal.additionalInfo" :key="key" class="mb-2">
-          <span class="font-medium text-gray-700">{{ key }}:</span> {{ value }}
-        </p>
-      </div>
-
       <!-- Weekly Checks Section -->
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold mb-4 text-gray-800">Weekly Checks</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div v-for="(isChecked, day) in weeklyChecks" :key="day">
-          <label class="flex items-center space-x-3">
-            <input v-model="weeklyChecks[day]" type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
-            <span class="text-gray-700">{{ day }}</span>
-          </label>
+      <div class="mt-6">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Weekly Checks</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div v-for="(isChecked, day) in animal.weeklyChecks" :key="day">
+            <label class="flex items-center space-x-3">
+              <input v-model="weeklyChecks[day]" @change="handleCheckboxChange(day)" type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+              <span class="text-gray-700">{{ day }}</span>
+            </label>
+          </div>
         </div>
-      </div>
     </div>
 
 

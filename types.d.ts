@@ -15,7 +15,7 @@ export interface Animal {
   height: Meter
   favouriteFruit: Fruit
   image?: string;
-  additionalInfo?: Record<string, any>;
+  weeklyChecks?: WeeklyChecks; 
 }
 
 export type FeedingTask = {

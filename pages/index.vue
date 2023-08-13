@@ -59,7 +59,7 @@ onMounted(() => {
     <!-- Introducing Feeding Task Overview -->
     <section class="mt-6 mb-4">
       <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Upcoming Feeding Tasks:</h3>
-      <!-- <FeedingOverview :tasks="feedingTasks" /> -->
+       <FeedingOverview :tasks="feedingTasks" /> 
     </section>
 
     <h2 class="text-xl md:text-2xl lg:text-3xl mt-8 mb-4 font-semibold">Our (lovely) Animals:</h2>
