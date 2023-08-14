@@ -20,7 +20,7 @@ export default {
   <header class="bg-green-600 shadow-md text-white">
     <div class="container mx-auto px-4 py-2 flex items-center justify-between relative z-20">
       <nuxt-link to="/">
-        <img class="h-10 w-auto" src="~/assets/images/logo.png" alt="Logo" />
+        <img class="h-10 w-auto" src="../../assets/images/logo.png" alt="Logo" />
       </nuxt-link>
       <!-- Desktop Navigation -->
       <nav>

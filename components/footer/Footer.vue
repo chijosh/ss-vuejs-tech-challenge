@@ -13,7 +13,7 @@ export default {
     <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
       <!-- Logo and Site Name -->
       <div class="flex items-center space-x-2">
-        <img class="h-10 w-auto" src="~/assets/images/logo.png" alt="Logo" />
+        <img class="h-10 w-auto" src="../../assets/images/logo.png" alt="Logo" />
         <span class="text-xl font-semibold">Cologne Zoo</span>
       </div>
       <!-- Copyright and Date -->
@@ -22,4 +22,8 @@ export default {
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+footer {
+  flex-shrink: 0;
+}
+</style>

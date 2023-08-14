@@ -4,7 +4,7 @@
 import { ref, computed } from 'vue';
 import CalendarCard from './CalendarCard.vue';
 import { format, getDaysInMonth, getDay } from 'date-fns';
-import { WeekDays } from '../../types';
+import { Days } from '../../types';
 
 const currentDate = ref(new Date());
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -40,9 +40,8 @@ const entries = computed(() => {
   });
 });
 
-function getWeekDayName(date: Date): WeekDays {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  return days[date.getDay()] as WeekDays;
+function getWeekDayName(date: Date): Days {
+  return daysOfWeek[date.getDay()] as Days;
 }
 </script>
 

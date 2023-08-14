@@ -24,8 +24,8 @@ export type FeedingTask = {
   fruit: string;
 };
 
-type WeekDays = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+type Days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 
 interface WeeklyChecks {
-  [day in WeekDays]: boolean;
+  [key in Days]: boolean;
 }

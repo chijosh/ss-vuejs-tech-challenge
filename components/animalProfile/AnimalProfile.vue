@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { WeeklyChecks } from '@/types';
+import type { WeeklyChecks, Days } from '@/types';
 import AnimalInfoRender from '../animalInfoRender/AnimalInfoRender.vue';
-import { useAsset } from '@/composables/handleImage';
+import { useAsset } from '../../composables/handleImage';
 import Swal from 'sweetalert2';
 
 const animals = useAnimals();
@@ -23,13 +23,16 @@ const weeklyChecks: WeeklyChecks = animal?.weeklyChecks || {
   Sunday: false,
 };
 
-const handleCheckboxChange = (day: string) => {
-  console.log(`Checkbox for ${day} was changed to ${weeklyChecks[day]}`);
+const handleCheckboxChange = (day: Days) => {
+  console.log(`Checkbox for ${day} was changed to ${weeklyChecks[day as keyof WeeklyChecks]}`);
 
   const animalIndex = animals.value.findIndex((a) => a.id === animal?.id);
 
   if (animalIndex !== -1) {
-    animals.value[animalIndex].weeklyChecks[day] = weeklyChecks[day];
+    animals.value[animalIndex].weeklyChecks = {
+      ...weeklyChecks,
+      [day]: weeklyChecks[day as keyof WeeklyChecks],
+    };
   }
   Swal.fire({
     position: 'bottom-start',

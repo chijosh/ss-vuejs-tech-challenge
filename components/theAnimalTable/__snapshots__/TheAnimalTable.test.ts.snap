@@ -1,17 +1,19 @@
 // Vitest Snapshot v1
 
 exports[`TheAnimalTable > mounts and is still the same 1`] = `
-"<table class=\\"table-auto\\" data-v-5893c39c=\\"\\">
-  <thead data-v-5893c39c=\\"\\">
-    <tr data-v-5893c39c=\\"\\">
-      <th data-v-5893c39c=\\"\\">Index</th>
-      <th data-v-5893c39c=\\"\\">Species</th>
-      <th data-v-5893c39c=\\"\\">Name</th>
-      <th data-v-5893c39c=\\"\\">Gender</th>
-      <th data-v-5893c39c=\\"\\">Age (yrs)</th>
-      <th data-v-5893c39c=\\"\\">Weight (kg)</th>
+"<table data-v-67744144=\\"\\" class=\\"min-w-full bg-white rounded-lg overflow-hidden shadow-lg my-5 text-gray-800\\">
+  <thead data-v-67744144=\\"\\" class=\\"bg-gradient-to-r from-gray-600 to-gray-900 text-white\\">
+    <tr data-v-67744144=\\"\\">
+      <th data-v-67744144=\\"\\" class=\\"py-2 px-3 md:px-6 text-center\\">Index</th>
+      <th data-v-67744144=\\"\\" class=\\"hidden md:table-cell py-2 px-3 md:px-6 text-center\\">Species</th>
+      <th data-v-67744144=\\"\\" class=\\"py-2 px-3 md:px-6 text-center\\">Name</th>
+      <th data-v-67744144=\\"\\" class=\\"hidden md:table-cell py-2 px-3 md:px-6 text-center\\">Gender</th>
+      <th data-v-67744144=\\"\\" class=\\"hidden md:table-cell py-2 px-3 md:px-6 text-center\\">Age (yrs)</th>
+      <th data-v-67744144=\\"\\" class=\\"hidden md:table-cell py-2 px-3 md:px-6 text-center\\">Weight (kg)</th>
+      <th data-v-67744144=\\"\\" class=\\"py-2 px-3 md:px-6 text-center\\">Details</th>
+      <th data-v-67744144=\\"\\" class=\\"py-2 px-3 md:px-6 text-center\\">Edit</th>
     </tr>
   </thead>
-  <tbody data-v-5893c39c=\\"\\"></tbody>
+  <tbody data-v-67744144=\\"\\"></tbody>
 </table>"
 `;

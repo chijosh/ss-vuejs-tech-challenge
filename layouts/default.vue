@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="site-wrapper flex flex-col min-h-screen">
     <header>
       <Header />
     </header>
-    <main>
+    <main class="site-content flex-grow">
       <slot />
     </main>
     <footer>

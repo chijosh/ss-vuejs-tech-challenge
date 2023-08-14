@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { calculateFoodRequirement } from '@/composables/helpers';
+import { calculateFoodRequirement } from '../../composables/helpers';
 
 const animals = useAnimals();
 const today = new Date().toLocaleString('default', { weekday: 'long' });
