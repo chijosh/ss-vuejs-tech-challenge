@@ -13,6 +13,9 @@ if (!animal) {
   console.error('Animal not found!');
 }
 
+console.log({animal});
+
+
 const weeklyChecks: WeeklyChecks = animal?.weeklyChecks || {
   Monday: false,
   Tuesday: false,
