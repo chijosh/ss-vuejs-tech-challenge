@@ -12,7 +12,7 @@ const today = new Date().toLocaleString('default', { weekday: 'long' });
 const date = new Date().toLocaleDateString('default', {
   year: 'numeric',
   month: 'short',
-  day: 'numeric'
+  day: 'numeric',
 });
 
 const colors = [
@@ -51,7 +51,9 @@ const dayOfWeekForGivenDate: Ref<string | null> = computed(() => {
 const animalsToFeedOnGivenDay = computed(() => {
   if (!dayOfWeekForGivenDate.value) return [];
 
-  return animals.value.filter((animal) => animal.weeklyChecks && animal.weeklyChecks[dayOfWeekForGivenDate.value]);
+  return animals.value.filter(
+    (animal) => animal.weeklyChecks && animal.weeklyChecks[dayOfWeekForGivenDate.value],
+  );
 });
 
 const getRandomColor = () => {
@@ -67,11 +69,13 @@ const fullDate: Ref<Date | null> = computed(() => {
 });
 
 const formattedDate: Ref<string | null> = computed(() => {
-  return fullDate.value?.toLocaleDateString('default', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }) || null;
+  return (
+    fullDate.value?.toLocaleDateString('default', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }) || null
+  );
 });
 
 //TODO: Abstract functions into helpers and expand unit tests.
@@ -79,7 +83,9 @@ const formattedDate: Ref<string | null> = computed(() => {
 
 <template>
   <div>
-    <h2 v-if="!hideButtons" class="text-xl mb-4 text-gray-800">{{ today }} ({{ date }}): {{ animalsToFeedToday.length }} Animals to Feed</h2>
+    <h2 v-if="!hideButtons" class="text-xl mb-4 text-gray-800">
+      {{ today }} ({{ date }}): {{ animalsToFeedToday.length }} Animals to Feed
+    </h2>
 
     <div v-if="!hideButtons" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <div v-for="animal in displayedAnimals" :key="animal.id" :class="[getRandomColor(), 'card']">
@@ -95,10 +101,16 @@ const formattedDate: Ref<string | null> = computed(() => {
     </div>
 
     <div v-else class="mx-4 md:mx-12 lg:mx-24">
-      <h2 v-if="formattedDate" class="text-xl mb-4 text-gray-800">{{ formattedDate }}: {{ animalsToFeedOnGivenDay.length }} Animals to Feed</h2>
+      <h2 v-if="formattedDate" class="text-xl mb-4 text-gray-800">
+        {{ formattedDate }}: {{ animalsToFeedOnGivenDay.length }} Animals to Feed
+      </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div v-for="animal in animalsToFeedOnGivenDay" :key="animal.id" :class="[getRandomColor(), 'card']">
+        <div
+          v-for="animal in animalsToFeedOnGivenDay"
+          :key="animal.id"
+          :class="[getRandomColor(), 'card']"
+        >
           <nuxt-link :to="`/animal/${animal.id}`">
             <h3>{{ animal.name }}</h3>
             <p class="capitalize"><strong>Favourite Fruit:</strong> {{ animal.favouriteFruit }}</p>
@@ -107,10 +119,9 @@ const formattedDate: Ref<string | null> = computed(() => {
               {{ calculateFoodRequirement(animal) }} Kg
             </p>
           </nuxt-link>
-          </div>
         </div>
+      </div>
     </div>
-
 
     <button
       v-if="!hideButtons && animalsToFeedToday.length > 8 && !showAllAnimals"
