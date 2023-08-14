@@ -35,8 +35,6 @@ const entries = computed(() => {
     const feedCount = animals.value.filter(
       (animal) => animal.weeklyChecks && animal.weeklyChecks[dayName],
     ).length;
-    console.log(`>>>>>>>>>`, { day: i + 1, animalsToFeed: feedCount });
-
     return { day: i + 1, animalsToFeed: feedCount };
   });
 });
@@ -57,12 +55,7 @@ function getWeekDayName(date: Date): Days {
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
       <div v-for="n in startingEmptyDays" :key="n" class="border h-40 hidden lg:grid"></div>
-      <CalendarCard
-        v-for="entry in entries"
-        :key="entry.day"
-        :day="entry.day"
-        :entry="entry"
-      />
+      <CalendarCard v-for="entry in entries" :key="entry.day" :day="entry.day" :entry="entry" />
     </div>
   </div>
 </template>

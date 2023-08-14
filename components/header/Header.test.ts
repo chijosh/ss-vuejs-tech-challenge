@@ -4,7 +4,6 @@ import { mount } from '@vue/test-utils';
 import Header from './Header.vue'; // Adjust the path accordingly
 
 describe('Header component', () => {
-
   test('renders without crashing', () => {
     const wrapper = mount(Header);
     const logo = wrapper.find('img[alt="Logo"]');
@@ -27,7 +26,7 @@ describe('Header component', () => {
     const hamburgerButton = wrapper.find('button');
 
     expect(wrapper.vm.isMenuOpen).toBe(false);
-    
+
     await hamburgerButton.trigger('click');
     expect(wrapper.vm.isMenuOpen).toBe(true);
 
@@ -46,6 +45,4 @@ describe('Header component', () => {
     expect(calendarLink.text()).toBe('Calendar');
     expect(aboutLink.text()).toBe('About');
   });
-
 });
-

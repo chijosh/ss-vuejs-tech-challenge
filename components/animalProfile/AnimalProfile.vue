@@ -107,9 +107,7 @@ const handleCheckboxChange = (day: Days) => {
 
       <div class="flex justify-end">
         <nuxt-link :to="`/`" class="px-4 py-2 bg-green-900 text-white rounded">
-          <button>
-            Done
-          </button>
+          <button>Done</button>
         </nuxt-link>
       </div>
     </div>

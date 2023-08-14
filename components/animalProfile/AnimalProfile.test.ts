@@ -52,16 +52,15 @@ describe.skip('AnimalProfile.vue', () => {
           }),
         },
         components: {
-          AnimalInfoRender: true, 
+          AnimalInfoRender: true,
         },
       },
     });
   });
 
   afterEach(() => {
-    vi.clearAllMocks();  
+    vi.clearAllMocks();
   });
-
 
   test('renders animal data correctly when provided with valid animal data', () => {
     const header = wrapper.find('h1');
@@ -77,7 +76,7 @@ describe.skip('AnimalProfile.vue', () => {
           }),
         },
         components: {
-          AnimalInfoRender: true, 
+          AnimalInfoRender: true,
         },
       },
     });

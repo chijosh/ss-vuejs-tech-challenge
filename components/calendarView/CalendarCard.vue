@@ -1,5 +1,4 @@
 <script>
-
 export default {
   props: {
     day: {
@@ -19,7 +18,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <template>

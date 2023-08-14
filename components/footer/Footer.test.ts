@@ -1,10 +1,9 @@
 import { describe, expect, test } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import Footer from './Footer.vue'; 
+import Footer from './Footer.vue';
 
 describe('Footer component', () => {
-
   test('renders without crashing', () => {
     const wrapper = mount(Footer);
     const logo = wrapper.find('img[alt="Logo"]');
@@ -25,5 +24,4 @@ describe('Footer component', () => {
     expect(logo.exists()).toBe(true);
     expect(siteName.text()).toBe('Cologne Zoo');
   });
-
 });

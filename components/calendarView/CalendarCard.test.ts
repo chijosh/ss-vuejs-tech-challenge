@@ -3,11 +3,10 @@ import { mount } from '@vue/test-utils';
 import CalendarCard from './CalendarCard.vue';
 
 describe('CalendarCard.vue', () => {
-  
   test('renders day prop correctly', () => {
     const day = 5;
     const wrapper = mount(CalendarCard, {
-      props: { day }
+      props: { day },
     });
     expect(wrapper.text()).toContain(day);
   });
@@ -17,8 +16,8 @@ describe('CalendarCard.vue', () => {
     const wrapper = mount(CalendarCard, {
       props: {
         day: 5,
-        entry
-      }
+        entry,
+      },
     });
     expect(wrapper.text()).toContain('Name: Elephant');
     expect(wrapper.text()).toContain('Height: 300 cm');
@@ -28,8 +27,8 @@ describe('CalendarCard.vue', () => {
     const wrapper = mount(CalendarCard, {
       props: {
         day: 5,
-        entry: null
-      }
+        entry: null,
+      },
     });
     expect(wrapper.text()).toContain('No Entry');
   });
@@ -37,13 +36,13 @@ describe('CalendarCard.vue', () => {
   test('computed property returns one of the predefined colors', () => {
     const wrapper = mount(CalendarCard, {
       props: {
-        day: 5
-      }
+        day: 5,
+      },
     });
 
     const possibleColors = ['red', 'yellow', 'blue', 'green', 'purple', 'pink', 'indigo'];
     const cardClass = wrapper.vm.cardClass;
-    const color = cardClass.split('-')[2];  
+    const color = cardClass.split('-')[2];
     expect(possibleColors).toContain(color);
   });
 });
