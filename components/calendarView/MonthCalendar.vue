@@ -45,7 +45,7 @@ function getWeekDayName(date: Date): WeekDays {
 <template>
   <div class="calendar-container container mx-auto px-4">
     <div class="header p-4 bg-blue-600 text-white text-center text-xl mb-4">
-      {{ currentMonth }}
+      Feeding for {{ currentMonth }}
     </div>
     <div class="weekdays grid lg:grid-cols-7 mb-2 text-center font-semibold hidden lg:grid">
       <div v-for="day in daysOfWeek" :key="day">{{ day }}</div>
