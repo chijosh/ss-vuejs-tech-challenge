@@ -6,15 +6,12 @@ import Swal from 'sweetalert2';
 
 const animals = useAnimals();
 const routeObject = useRoute();
-const param = routeObject.params;
 
+const param = routeObject.params;
 const animal = animals.value.find((animal) => animal.id === param._animalsId);
 if (!animal) {
   console.error('Animal not found!');
 }
-
-console.log({animal});
-
 
 const weeklyChecks: WeeklyChecks = animal?.weeklyChecks || {
   Monday: false,

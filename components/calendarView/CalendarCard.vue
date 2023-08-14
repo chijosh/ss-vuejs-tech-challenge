@@ -21,11 +21,13 @@ export default {
 </script>
 
 <template>
-  <div :class="cardClass">
-    <div class="text-xl font-bold">{{ day }}</div>
-    <div v-if="entry">
-      <div>Animals to Feed: {{ entry.animalsToFeed }}</div>
+  <nuxt-link :to="`/task/${day}`">
+    <div :class="cardClass">
+      <div class="text-xl font-bold">{{ day }}</div>
+        <div v-if="entry">
+          <div>Animals to Feed: {{ entry.animalsToFeed }}</div>
+        </div>
+        <div class="text-gray-600" v-else>No Entry</div>
     </div>
-    <div class="text-gray-600" v-else>No Entry</div>
-  </div>
+  </nuxt-link>
 </template>
