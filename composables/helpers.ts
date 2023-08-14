@@ -1,7 +1,7 @@
-import { Animal } from "~~/types";
+import { Animal } from '~~/types';
 
 export const calculateAgeInYears = (birthdate: Date): Number => {
-  const today = new Date()
+  const today = new Date();
   // Reset the time part to ensure we are only comparing the date part
   today.setHours(0, 0, 0, 0);
 
@@ -11,7 +11,7 @@ export const calculateAgeInYears = (birthdate: Date): Number => {
   }
 
   birthdate.setHours(0, 0, 0, 0);
-  
+
   const differenceInDays = (today.getTime() - birthdate.getTime()) / (1000 * 60 * 60 * 24);
 
   if (differenceInDays < 0) {
@@ -28,7 +28,7 @@ export const calculateAgeInYears = (birthdate: Date): Number => {
 
   // Using floor as we're only interested in complete years
   return Math.floor(differenceInDays / 365);
-}
+};
 
 export const calculateFoodRequirement = (animal: Animal): number => {
   // If the animal is a fish, return 0
@@ -37,7 +37,7 @@ export const calculateFoodRequirement = (animal: Animal): number => {
   let foodRequirement = (animal.height + animal.weight) / 250;
 
   // Age-based adjustment
-  const age = calculateAgeInYears(animal.birthdate); 
+  const age = calculateAgeInYears(animal.birthdate);
   const ageNumber = Number(age);
   if (ageNumber > 20) {
     foodRequirement /= 2;
@@ -52,7 +52,7 @@ export const calculateFoodRequirement = (animal: Animal): number => {
 
   // If the animal is male, add 20%
   if (animal.gender === 'male') {
-    foodRequirement *= 1.20;
+    foodRequirement *= 1.2;
   }
 
   return parseFloat(foodRequirement.toFixed(2));

@@ -1,3 +1,3 @@
-import type { Animal } from '@/types'
+import type { Animal } from '@/types';
 
-export const useAnimals = () => useState<Animal[]>('my-animals', () => [] )
+export const useAnimals = () => useState<Animal[]>('my-animals', () => []);

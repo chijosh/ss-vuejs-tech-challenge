@@ -3,21 +3,21 @@ export default {
   props: {
     day: {
       type: Number,
-      required: true
+      required: true,
     },
     entry: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     cardClass() {
       const colors = ['red', 'yellow', 'blue', 'green', 'purple', 'pink', 'indigo'];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       return `border p-4 bg-${randomColor}-200 w-full h-40 flex flex-col items-center justify-between flex-grow`;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>

@@ -1,12 +1,10 @@
-<script lang="ts">
-
-</script>
+<script lang="ts"></script>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import CalendarCard from './CalendarCard.vue';
 import { format, getDaysInMonth, getDay } from 'date-fns';
-import { Animal, WeekDays } from '../../types';
+import { WeekDays } from '../../types';
 
 const currentDate = ref(new Date());
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -21,7 +19,11 @@ const currentMonth = computed(() => {
 });
 
 const startingEmptyDays = computed(() => {
-  const firstDayOfMonth = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), 1);
+  const firstDayOfMonth = new Date(
+    currentDate.value.getFullYear(),
+    currentDate.value.getMonth(),
+    1,
+  );
   return getDay(firstDayOfMonth);
 });
 
@@ -29,8 +31,10 @@ const entries = computed(() => {
   return Array.from({ length: getDaysInMonth(currentDate.value) }, (_, i) => {
     const current = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), i + 1);
     const dayName = getWeekDayName(current);
-    
-    const feedCount = animals.value.filter(animal => animal.weeklyChecks && animal.weeklyChecks[dayName]).length;
+
+    const feedCount = animals.value.filter(
+      (animal) => animal.weeklyChecks && animal.weeklyChecks[dayName],
+    ).length;
 
     return { day: i + 1, animalsToFeed: feedCount };
   });
@@ -63,4 +67,3 @@ function getWeekDayName(date: Date): WeekDays {
     </div>
   </div>
 </template>
-  

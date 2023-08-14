@@ -1,11 +1,11 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest';
 
-import animalsGet from '../api/animals.get'
+import animalsGet from '../api/animals.get';
 
 describe('The animalsGet endpoint', () => {
   test('returns 50 animals', () => {
-    const animals = animalsGet()
+    const animals = animalsGet();
 
-    expect(animals.length).toBe(50)
-  })
-})
+    expect(animals.length).toBe(50);
+  });
+});

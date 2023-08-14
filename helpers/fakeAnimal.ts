@@ -1,25 +1,22 @@
-import type { GenderType } from '@faker-js/faker'
-import { faker } from '@faker-js/faker'
+import type { GenderType } from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
-import type { Animal, Fruit, Gender, WeeklyChecks } from '../types'
-
-
+import type { Animal, Fruit, Gender, WeeklyChecks } from '../types';
 
 export const fakeAnimal = (): Animal => {
-  const gender = faker.helpers.arrayElement(['male', 'female']) as Gender
-  const favouriteFruit = faker.helpers.arrayElement(['banana', 'apple', 'cherry']) as Fruit
-  const animalSpecie = faker.animal.type()
+  const gender = faker.helpers.arrayElement(['male', 'female']) as Gender;
+  const favouriteFruit = faker.helpers.arrayElement(['banana', 'apple', 'cherry']) as Fruit;
+  const animalSpecie = faker.animal.type();
 
   const weeklyChecks: WeeklyChecks = {
-    'Monday': faker.datatype.boolean(),
-    'Tuesday': faker.datatype.boolean(),
-    'Wednesday': faker.datatype.boolean(),
-    'Thursday': faker.datatype.boolean(),
-    'Friday': faker.datatype.boolean(),
-    'Saturday': faker.datatype.boolean(),
-    'Sunday': faker.datatype.boolean()
-  }
-
+    Monday: faker.datatype.boolean(),
+    Tuesday: faker.datatype.boolean(),
+    Wednesday: faker.datatype.boolean(),
+    Thursday: faker.datatype.boolean(),
+    Friday: faker.datatype.boolean(),
+    Saturday: faker.datatype.boolean(),
+    Sunday: faker.datatype.boolean(),
+  };
 
   return {
     id: faker.datatype.uuid(),
@@ -39,6 +36,6 @@ export const fakeAnimal = (): Animal => {
     gender,
     favouriteFruit,
     image: `/${animalSpecie}.jpg`,
-    weeklyChecks
-  }
-}
+    weeklyChecks,
+  };
+};

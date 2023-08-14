@@ -1,13 +1,13 @@
 <template>
-    <MonthCalendar />
+  <MonthCalendar />
 </template>
 
 <script>
-import MonthCalendar from '../components/calendarView/MonthCalendar.vue'
+import MonthCalendar from '../components/calendarView/MonthCalendar.vue';
 
 export default {
   components: {
-    MonthCalendar
-  }
-}
+    MonthCalendar,
+  },
+};
 </script>

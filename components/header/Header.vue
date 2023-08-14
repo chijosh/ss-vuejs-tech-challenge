@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      isMenuOpen: false
+      isMenuOpen: false,
     };
   },
   methods: {
@@ -11,9 +11,9 @@ export default {
     },
     closeMenu() {
       this.isMenuOpen = false;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>
@@ -23,11 +23,26 @@ export default {
         <img class="h-10 w-auto" src="~/assets/images/logo.png" alt="Logo" />
       </nuxt-link>
       <!-- Desktop Navigation -->
-      <nav >
+      <nav>
         <ul class="hidden md:flex space-x-4">
-          <li><nuxt-link class="hover:text-green-300 transition" to="/" @click.native="closeMenu">Home</nuxt-link></li>
-          <li><nuxt-link class="hover:text-green-300 transition" to="/calendar" @click.native="closeMenu">Calendar</nuxt-link></li>
-          <li><nuxt-link class="hover:text-green-300 transition" to="/about" @click.native="closeMenu">About</nuxt-link></li>
+          <li>
+            <nuxt-link class="hover:text-green-300 transition" to="/" @click.native="closeMenu"
+              >Home</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link
+              class="hover:text-green-300 transition"
+              to="/calendar"
+              @click.native="closeMenu"
+              >Calendar</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link class="hover:text-green-300 transition" to="/about" @click.native="closeMenu"
+              >About</nuxt-link
+            >
+          </li>
         </ul>
       </nav>
       <!-- Mobile Menu Icon -->
@@ -42,47 +57,71 @@ export default {
         </button>
       </div>
       <!-- Mobile Menu Dropdown -->
-      <transition 
-        enter-active-class="animate__animated animate__fadeInDown" 
+      <transition
+        enter-active-class="animate__animated animate__fadeInDown"
         leave-active-class="animate__animated animate__fadeOutUp"
         enter-class="menu-start-position"
       >
-      <div v-if="isMenuOpen" class="fixed inset-0 bg-green-600 z-10 md:hidden flex justify-center items-center">
-        <ul class="space-y-4 text-2xl">
-          <li><nuxt-link class="block px-4 py-2 hover:text-green-300 transition" to="/" @click.native="closeMenu">Home</nuxt-link></li>
-          <li><nuxt-link class="block px-4 py-2 hover:text-green-300 transition" to="/calendar" @click.native="closeMenu">Calendar</nuxt-link></li>
-          <li><nuxt-link class="block px-4 py-2 hover:text-green-300 transition" to="/about" @click.native="closeMenu">About</nuxt-link></li>
-        </ul>
-      </div>
-    </transition>
+        <div
+          v-if="isMenuOpen"
+          class="fixed inset-0 bg-green-600 z-10 md:hidden flex justify-center items-center"
+        >
+          <ul class="space-y-4 text-2xl">
+            <li>
+              <nuxt-link
+                class="block px-4 py-2 hover:text-green-300 transition"
+                to="/"
+                @click.native="closeMenu"
+                >Home</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link
+                class="block px-4 py-2 hover:text-green-300 transition"
+                to="/calendar"
+                @click.native="closeMenu"
+                >Calendar</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link
+                class="block px-4 py-2 hover:text-green-300 transition"
+                to="/about"
+                @click.native="closeMenu"
+                >About</nuxt-link
+              >
+            </li>
+          </ul>
+        </div>
+      </transition>
     </div>
   </header>
 </template>
-
-
 
 <style>
 header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0; 
-  z-index: 1000; 
+  right: 0;
+  z-index: 1000;
 }
 
 .fixed.inset-0.bg-green-600 {
-  background-color: rgba(39, 174, 96, 0.95); 
+  background-color: rgba(39, 174, 96, 0.95);
 }
 
-.menu-animate-enter-active, .menu-animate-leave-active {
+.menu-animate-enter-active,
+.menu-animate-leave-active {
   transition-duration: 1s;
 }
-.menu-animate-enter, .menu-animate-leave-to {
+.menu-animate-enter,
+.menu-animate-leave-to {
   opacity: 0;
   transform: translateY(-100%);
 }
 .menu-start-position {
-  top: -4rem; 
+  top: -4rem;
 }
 
 .hamburger {

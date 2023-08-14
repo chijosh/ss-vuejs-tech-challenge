@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface ComponentFormSubmission {
-  name: string
+  name: string;
 }
 
 const props = defineProps({
@@ -12,13 +12,13 @@ const props = defineProps({
     type: String,
     default: 'Your name...',
   },
-})
+});
 
 defineEmits<{
-  (e: 'submit', value: ComponentFormSubmission): void
-}>()
+  (e: 'submit', value: ComponentFormSubmission): void;
+}>();
 
-const localModelValue = props.modelValue
+const localModelValue = props.modelValue;
 </script>
 
 <template>
@@ -32,16 +32,12 @@ const localModelValue = props.modelValue
           class="border rounded p-1 outline-none"
           :placeholder="placeholder"
           autofocus
-        >
+        />
       </span>
-      <button type="submit" class="bg-blue-200 rounded p-1">
-        Submit
-      </button>
+      <button type="submit" class="bg-blue-200 rounded p-1">Submit</button>
     </form>
     <div class="mt-2">
-      <nuxt-link to="/">
-        Example link
-      </nuxt-link>
+      <nuxt-link to="/"> Example link </nuxt-link>
     </div>
   </div>
 </template>
