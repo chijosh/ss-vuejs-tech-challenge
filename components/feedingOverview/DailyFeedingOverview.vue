@@ -42,12 +42,14 @@ const getRandomColor = () => {
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <div v-for="animal in displayedAnimals" :key="animal.id" :class="[getRandomColor(), 'card']">
+        <nuxt-link :to="`/animal/${animal.id}`">
         <h3>{{ animal.name }}</h3>
         <p><strong>Favourite Fruit:</strong> {{ animal.favouriteFruit }}</p>
         <p>
           <strong>Food required:</strong>
           {{ calculateFoodRequirement(animal) }} Kg
         </p>
+      </nuxt-link>
       </div>
     </div>
 
