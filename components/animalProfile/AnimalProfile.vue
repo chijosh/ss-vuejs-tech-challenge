@@ -2,7 +2,7 @@
 import type { WeeklyChecks } from '@/types'
 import AnimalInfoRender from '../animalInfoRender/AnimalInfoRender.vue';
 import { useAsset } from '@/composables/handleImage'
-
+import Swal from 'sweetalert2';
 
 const animals = useAnimals()
 const routeObject = useRoute()
@@ -31,8 +31,21 @@ const handleCheckboxChange = (day: string) => {
 
   
   if (animalIndex !== -1) {
-  animals.value[animalIndex].weeklyChecks[day] = weeklyChecks[day];
-}
+    animals.value[animalIndex].weeklyChecks[day] = weeklyChecks[day];
+  }
+  Swal.fire({
+  position: 'bottom-start',
+  text: 'The schedule has been saved',
+  showConfirmButton: false,
+  timer: 3500,
+  backdrop: false,
+  showClass: {
+    popup: 'animate__animated animate__slideInLeft'
+  },
+  hideClass: {
+    popup: 'animate__animated animate__slideOutLeft'
+  }
+})
 }
 
 </script>
@@ -63,7 +76,7 @@ const handleCheckboxChange = (day: string) => {
 
       <!-- Weekly Checks Section -->
       <div class="mt-6">
-        <h2 class="text-xl font-semibold mb-4 text-gray-800">Weekly Checks</h2>
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Weekly Feeding</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div v-for="(isChecked, day) in animal.weeklyChecks" :key="day">
             <label class="flex items-center space-x-3">

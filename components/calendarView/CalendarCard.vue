@@ -1,14 +1,3 @@
-<template>
-  <div :class="cardClass">
-    <div class="text-xl font-bold">{{ day }}</div>
-    <div v-if="entry">
-      <div>Name: {{ entry.name }}</div>
-      <div>Height: {{ entry.height }} cm</div>
-    </div>
-    <div class="text-gray-600" v-else>No Entry</div>
-  </div>
-</template>
-
 <script>
 export default {
   props: {
@@ -30,3 +19,14 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div :class="cardClass">
+    <div class="text-xl font-bold">{{ day }}</div>
+    <div v-if="entry">
+      <div>Name: {{ entry.name }}</div>
+      <div>Height: {{ entry.height }} cm</div>
+    </div>
+    <div class="text-gray-600" v-else>No Entry</div>
+  </div>
+</template>

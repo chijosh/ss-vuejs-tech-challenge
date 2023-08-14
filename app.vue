@@ -1,7 +1,7 @@
 <script setup>
-useHead({
-  title: 'Cologne Zoo'
-})
+  useHead({
+    title: 'Cologne Zoo'
+  })
 </script>
 
 <template>
