@@ -104,6 +104,14 @@ const handleCheckboxChange = (day: Days) => {
           </div>
         </div>
       </div>
+
+      <div class="flex justify-end">
+        <nuxt-link :to="`/`" class="px-4 py-2 bg-green-900 text-white rounded">
+          <button>
+            Done
+          </button>
+        </nuxt-link>
+      </div>
     </div>
     <div v-else>
       <p class="text-gray-600">No animal data available</p>
