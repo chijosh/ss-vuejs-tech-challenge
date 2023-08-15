@@ -14,7 +14,7 @@ export default {
     cardClass() {
       const colors = ['red', 'yellow', 'blue', 'green', 'purple', 'pink', 'indigo'];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      return `border p-4 bg-${randomColor}-200 w-full h-40 flex flex-col items-center justify-between flex-grow`;
+      return `card border p-4 w-full h-40 flex flex-col items-center justify-between flex-grow transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:rounded-lg bg-${randomColor}-200`;
     },
   },
 };
@@ -36,3 +36,11 @@ export default {
     </div>
   </nuxt-link>
 </template>
+
+<style scoped>
+.card:hover {
+  filter: brightness(0.9);
+  position: relative;
+  z-index: 2;
+}
+</style>
