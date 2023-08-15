@@ -60,7 +60,7 @@ const showPopupOnce = () => {
 
     <!-- Introducing Feeding Task Overview -->
     <section class="mt-6 mb-4">
-      <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Upcoming Feeding Tasks:</h3>
+      <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Feeding Schedule for Today:</h3>
       <FeedingOverview />
     </section>
 

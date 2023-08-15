@@ -4,15 +4,11 @@
 import { ref, computed } from 'vue';
 import CalendarCard from './CalendarCard.vue';
 import { format, getDaysInMonth, getDay } from 'date-fns';
-import { Days } from '../../types';
+import { Days, FoodRequirement, CalendarEntry, Animal } from '../../types';
 
 const currentDate = ref(new Date());
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const animals = ref(useAnimals());
-
-const daysInMonth = computed(() => {
-  return Array.from({ length: getDaysInMonth(currentDate.value) }, (_, i) => i + 1);
-});
 
 const currentMonth = computed(() => {
   return format(currentDate.value, 'MMMM');
@@ -27,21 +23,38 @@ const startingEmptyDays = computed(() => {
   return getDay(firstDayOfMonth);
 });
 
-const entries = computed(() => {
+const entries = computed<CalendarEntry[]>(() => {
   return Array.from({ length: getDaysInMonth(currentDate.value) }, (_, i) => {
     const current = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), i + 1);
     const dayName = getWeekDayName(current);
 
-    const feedCount = animals.value.filter(
-      (animal) => animal.weeklyChecks && animal.weeklyChecks[dayName],
-    ).length;
-    return { day: i + 1, animalsToFeed: feedCount };
+    const animalsToFeedToday = animals.value.filter(
+      (animal: Animal) => animal.weeklyChecks && animal.weeklyChecks[dayName],
+    );
+
+    const feedCount = animalsToFeedToday.length;
+
+    const totalFoodForTheDay = animalsToFeedToday.reduce<FoodRequirement>((accum, animal) => {
+      const foodRequirement = calculateFoodRequirement(animal);
+      const fruit = animal.favouriteFruit?.toLowerCase();
+      if (fruit) {
+        if (!accum[fruit]) {
+          accum[fruit] = 0;
+        }
+        accum[fruit] += foodRequirement;
+      }
+      return accum;
+    }, {});
+
+    return { day: i + 1, animalsToFeed: feedCount, totalFood: totalFoodForTheDay };
   });
 });
 
 function getWeekDayName(date: Date): Days {
   return daysOfWeek[date.getDay()] as Days;
 }
+
+//TODO: Abstract functions into helpers and expand unit tests.
 </script>
 
 <template>

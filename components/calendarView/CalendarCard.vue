@@ -24,8 +24,13 @@ export default {
   <nuxt-link :to="`/task/${day}`">
     <div :class="cardClass">
       <div class="text-xl font-bold">{{ day }}</div>
-      <div v-if="entry">
-        <div>Animals to Feed: {{ entry.animalsToFeed }}</div>
+      <div v-if="entry" class="text-sm">
+        <p><strong>Feed:</strong> {{ entry.animalsToFeed }} animals</p>
+        <h3 class="font-semibold">Fruits to Feed:</h3>
+        <p v-for="[key, value] in Object.entries(entry.totalFood)" :key="key" class="capitalize">
+          <strong>{{ key }}</strong
+          >: {{ value.toFixed(2) }} kg
+        </p>
       </div>
       <div class="text-gray-600" v-else>No Entry</div>
     </div>

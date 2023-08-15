@@ -29,3 +29,13 @@ type Days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturd
 interface WeeklyChecks {
   [key in Days]: boolean;
 }
+
+interface FoodRequirement {
+  [fruit: string]: number;
+}
+
+interface CalendarEntry {
+  day: number;
+  animalsToFeed: number;
+  totalFood: FoodRequirement;
+}
