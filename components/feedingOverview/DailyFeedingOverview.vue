@@ -109,7 +109,7 @@ const formattedDate: Ref<string | null> = computed(() => {
         <div
           v-for="animal in animalsToFeedOnGivenDay"
           :key="animal.id"
-          :class="[getRandomColor(), 'card']"
+          :class="[getRandomColor(), 'card hover']"
         >
           <nuxt-link :to="`/animal/${animal.id}`">
             <h3>{{ animal.name }}</h3>
@@ -144,5 +144,12 @@ const formattedDate: Ref<string | null> = computed(() => {
 <style scoped>
 .card {
   @apply p-6 rounded shadow-md border border-gray-200;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  background-color: #d1d1d1; 
+  position: relative;
+  z-index: 2;
 }
 </style>
