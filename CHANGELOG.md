@@ -1,6 +1,29 @@
-# Cologne Zoo v0.0.8 - (13.08.2023)
+# Cologne Zoo v0.0.10 - (15.08.2023)
 
 ### Changelog
+
+## [v0.0.10] - 15.08.2023
+### Added
+- Added `task` overview page to display feeding schedules per day.
+- Extended `CalendarCard.vue` component to display sum total of fruits to feed per day.
+- Updated About us page.
+- Updated CHANGELOG.
+
+### Notes
+- TODO: Abstract some functions to helper file to improve code readability.
+- TODO: Improve and extend unit tests for functions and components.
+- TODO: Fix app menu overlay on mobile to display appBar when overlay is opened.
+- TODO: Improve overall UX.
+
+## [v0.0.9] - 14.08.2023
+### Added
+- Added `CalendarCard.vue` component to display total sum of feed per day.
+- Added `MonthCalendar.vue` component to display an overview of total feeds for each days of the month.
+- Added `Animate.css` to animate dropdown and notification on checkbox tick.
+- Added `prettier` to improve code formatting.
+- Added 'Done' `button` on animal profile page for UX.
+- Made cards on homepage clickable.
+- Fixed several bugs.
 
 ## [v0.0.8] - 13.08.2023
 ### Added

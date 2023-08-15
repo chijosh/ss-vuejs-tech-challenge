@@ -1,5 +1,12 @@
 # Project Documentation
 
+- _View Finished Challenge live site:_ [https://vuejs-code-challenge.netlify.app/]
+- _Technologies Used:_
+  - Vue Js,
+  - Nuxt Js,
+  - TypeScript
+  - TailWindCSS
+
 ## Introduction
 
 Welcome to the Cologne Zoo project! This documentation will guide you through the basic operations that you can perform with the project using the provided npm scripts.
@@ -63,6 +70,21 @@ Or to run both linting processes simultaneously:
 npm run lint
 ```
 
+### Code Formatting:
+
+The project has code formatting set up to check for code format improvement.
+For type checking:
+
+```bash
+npm run prettier
+```
+
+or simply let `prettier` to do the formatting
+
+```bash
+npm run prettier:fix
+```
+
 ### Testing:
 
 The project uses vitest for testing:
@@ -100,4 +122,4 @@ npm run prepare
 - It's a good practice to regularly lint and test your code during development to catch any potential issues early on.
 
 
-[Changelog](Changelog.md)
+[Changelog](CHANGELOG.md)
