@@ -1,5 +1,5 @@
-import { vi, describe, expect, test } from 'vitest';
-import { shallowMount } from '@vue/test-utils';
+import { vi, describe, expect, test, beforeEach, afterEach } from 'vitest';
+import { shallowMount, VueWrapper } from '@vue/test-utils';
 import AnimalProfile from './AnimalProfile.vue';
 import Swal from 'sweetalert2';
 
@@ -7,8 +7,14 @@ vi.mock('sweetalert2', () => ({
   fire: vi.fn(),
 }));
 
-vi.mock('../../composables/helpers', () => ({
+vi.mock('../../composables/handleImage', () => ({
   useAsset: vi.fn(),
+}));
+
+vi.mock('@/path-to-your-composables-directory/useAnimals', () => ({
+  useAnimals: () => ({
+    value: [mockAnimal],
+  }),
 }));
 
 vi.mock('vue-router', () => ({
@@ -41,16 +47,11 @@ const mockAnimal = {
 };
 
 describe.skip('AnimalProfile.vue', () => {
-  let wrapper;
+  let wrapper: VueWrapper<any>;;
 
   beforeEach(() => {
     wrapper = shallowMount(AnimalProfile, {
       global: {
-        mocks: {
-          useAnimals: () => ({
-            value: [mockAnimal],
-          }),
-        },
         components: {
           AnimalInfoRender: true,
         },
@@ -68,18 +69,14 @@ describe.skip('AnimalProfile.vue', () => {
   });
 
   test('displays the "No animal data available" message when no animal data is provided', () => {
-    wrapper = shallowMount(AnimalProfile, {
-      global: {
-        mocks: {
-          useAnimals: () => ({
-            value: [],
-          }),
-        },
-        components: {
-          AnimalInfoRender: true,
-        },
-      },
-    });
+    vi.mock('@/path-to-your-composables-directory/useAnimals', () => ({
+      useAnimals: () => ({
+        value: [],
+      }),
+    }));
+
+    wrapper = shallowMount(AnimalProfile);
+
     expect(wrapper.text()).toContain('No animal data available');
   });
 

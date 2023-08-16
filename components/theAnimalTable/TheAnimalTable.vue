@@ -103,14 +103,14 @@ const openModal = (index: string) => {
             class="text-gray-700 hover:text-gray-900 transition duration-300 focus:outline-none"
           >
             View more
-            <font-awesome-icon :icon="['fasr', 'eye']" size="lg" style="color: #0f51c2" />
+            <font-awesome-icon :icon="['fas', 'eye']" size="lg" style="color: #0f51c2" />
           </button>
         </td>
         <td class="py-2 px-3 md:px-6 text-center">
           <nuxt-link :to="`/animal/${id}`">
             <button>
               <font-awesome-icon
-                :icon="['fasr', 'pen-to-square']"
+                :icon="['fas', 'pen-to-square']"
                 size="lg"
                 style="color: #0f51c2"
               />

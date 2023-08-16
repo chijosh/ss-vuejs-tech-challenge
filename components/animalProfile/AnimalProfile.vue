@@ -13,6 +13,7 @@ if (!animal) {
   console.error('Animal not found!');
 }
 
+
 const weeklyChecks: WeeklyChecks = animal?.weeklyChecks || {
   Monday: false,
   Tuesday: false,
@@ -22,6 +23,8 @@ const weeklyChecks: WeeklyChecks = animal?.weeklyChecks || {
   Saturday: false,
   Sunday: false,
 };
+
+console.log(weeklyChecks);
 
 const handleCheckboxChange = (day: Days) => {
   console.log(`Checkbox for ${day} was changed to ${weeklyChecks[day as keyof WeeklyChecks]}`);

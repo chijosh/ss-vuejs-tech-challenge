@@ -7,6 +7,7 @@
 - Added `task` overview page to display feeding schedules per day.
 - Extended `CalendarCard.vue` component to display sum total of fruits to feed per day.
 - Updated About us page.
+- Better manage state with store to persist data on page refresh.
 - Updated CHANGELOG.
 
 ### Notes

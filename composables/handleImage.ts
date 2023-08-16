@@ -1,5 +1,5 @@
 export const useAsset = (path: string): string => {
-  const assets = import.meta.glob('@/assets/images/*', {
+  const assets = import.meta.glob('/assets/images/*', {
     eager: true,
     import: 'default',
   });

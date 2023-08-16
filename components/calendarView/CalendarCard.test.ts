@@ -12,15 +12,21 @@ describe('CalendarCard.vue', () => {
   });
 
   test('renders entry details if present', () => {
-    const entry = { name: 'Elephant', height: 300 };
+    const entry = { 
+      name: 'Elephant', 
+      height: 300, 
+      animalsToFeed: 10, 
+      totalFood: { banana: 20.5, grass: 100.3 } 
+  };
     const wrapper = mount(CalendarCard, {
       props: {
         day: 5,
         entry,
       },
     });
-    expect(wrapper.text()).toContain('Name: Elephant');
-    expect(wrapper.text()).toContain('Height: 300 cm');
+    expect(wrapper.text()).toContain('Feed: 10 animals');
+    expect(wrapper.text()).toContain('banana: 20.50 kg');
+    expect(wrapper.text()).toContain('grass: 100.30 kg');
   });
 
   test('displays "No Entry" when no entry is provided', () => {
@@ -42,7 +48,11 @@ describe('CalendarCard.vue', () => {
 
     const possibleColors = ['red', 'yellow', 'blue', 'green', 'purple', 'pink', 'indigo'];
     const cardClass = wrapper.vm.cardClass;
-    const color = cardClass.split('-')[2];
-    expect(possibleColors).toContain(color);
+    const colorMatch = cardClass.match(/bg-(\w+)-\d{3}/);
+    if (colorMatch && colorMatch[1]) {
+      expect(possibleColors).toContain(colorMatch[1]);
+    } else {
+      throw new Error('No color found in cardClass.');
+    }
   });
 });
