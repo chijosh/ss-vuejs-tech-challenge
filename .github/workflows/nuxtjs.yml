@@ -51,14 +51,18 @@ jobs:
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-        with:
+      - name: Super-Linter
+        # You may pin to the exact commit or the version.
+        # uses: super-linter/super-linter@962a6409c1b303d0e53a9d34ada577a0362f4fae
+        uses: super-linter/super-linter@v5.2.1
+      # - name: Setup Pages
+        # uses: actions/configure-pages@v3
+        # with:
           # Automatically inject router.base in your Nuxt configuration file and set
           # target to static (https://nuxtjs.org/docs/configuration-glossary/configuration-target/).
           #
           # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: nuxt
+          # static_site_generator: nuxt
       - name: Restore cache
         uses: actions/cache@v3
         with:
