@@ -51,10 +51,12 @@ jobs:
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Super-Linter
+      - name: Lint Code Base with Super-Linter
         # You may pin to the exact commit or the version.
         # uses: super-linter/super-linter@962a6409c1b303d0e53a9d34ada577a0362f4fae
         uses: super-linter/super-linter@v5.2.1
+        env:
+          FILTER_REGEX_EXCLUDE: .*.github/.* | .*.husky/.* | .*.vscode/.* | .*assets/.*
       # - name: Setup Pages
         # uses: actions/configure-pages@v3
         # with:
