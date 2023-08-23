@@ -3,5 +3,6 @@ updates:
   # Enable version updates for npm
   - package-ecosystem: "npm"
     # Check the npm registry for updates weekly
+    directory: "/"
     schedule:
       interval: "weekly"
