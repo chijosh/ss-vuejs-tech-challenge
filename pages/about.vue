@@ -1,3 +1,5 @@
+<script></script>
+
 <template>
   <div class="mx-4 md:mx-12 lg:mx-24">
     <h1 class="text-3xl md:text-4xl lg:text-5xl mt-4 mb-2 font-bold">About Us</h1>
@@ -10,5 +12,3 @@
     </div>
   </div>
 </template>
-
-<script></script>

@@ -7,15 +7,10 @@ export default defineNuxtConfig({
     shim: false,
     strict: true,
   },
-  css: [
-    '~/assets/css/tailwind.css', 
-    '@fortawesome/fontawesome-svg-core/styles.css',
-  ],
+  css: ['~/assets/css/tailwind.css', '@fortawesome/fontawesome-svg-core/styles.css'],
   app: {
     head: {
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
 });

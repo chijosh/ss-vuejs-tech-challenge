@@ -1,5 +1,6 @@
-import type { Story } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
+import type { Story } from '@storybook/vue3';
+
 import TheComponent from './TheComponent.vue';
 
 export default {

@@ -1,10 +1,11 @@
 <script lang="ts"></script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { format, getDay, getDaysInMonth } from 'date-fns';
+import { computed, ref } from 'vue';
+
+import { Animal, CalendarEntry, Days, FoodRequirement } from '../../types';
 import CalendarCard from './CalendarCard.vue';
-import { format, getDaysInMonth, getDay } from 'date-fns';
-import { Days, FoodRequirement, CalendarEntry, Animal } from '../../types';
 
 const currentDate = ref(new Date());
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

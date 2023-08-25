@@ -8,15 +8,12 @@
   //
   // To avoid this we exclude the stories for now. See https://github.com/johnsoncodehk/volar/discussions/592
   // for the issue description and probably at some point resolution.
-  "exclude": [
-    "**/*.stories.ts"
-  ],
+  "exclude": ["**/*.stories.ts"],
   "compilerOptions": {
+    "skipLibCheck": true,
     // This is also part of volar#592, see above
-    "types": [
-      "vite/client"
-    ],
+    "types": ["vite/client"],
     // Preserve type checking in SFC templates, see https://github.com/johnsoncodehk/volar/issues/1219#issuecomment-1104548432
-    "jsx": "preserve"
+    "jsx": "preserve",
   }
 }

@@ -1,8 +1,8 @@
+import { faker } from '@faker-js/faker';
 import { describe, expect, test } from 'vitest';
 
-import { faker } from '@faker-js/faker';
-import { calculateAgeInYears, calculateFoodRequirement } from './helpers';
 import { Animal } from '../types';
+import { calculateAgeInYears, calculateFoodRequirement } from './helpers';
 
 describe('The calculateAgeInYears helper', () => {
   test('handles over 100 years correctly', () => {

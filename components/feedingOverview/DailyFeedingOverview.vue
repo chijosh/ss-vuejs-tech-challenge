@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+
 import { calculateFoodRequirement } from '../../composables/helpers';
 
 const animals = useAnimals();
@@ -148,7 +149,7 @@ const formattedDate: Ref<string | null> = computed(() => {
 }
 
 .card:hover {
-  background-color: #d1d1d1; 
+  background-color: #d1d1d1;
   position: relative;
   z-index: 2;
 }

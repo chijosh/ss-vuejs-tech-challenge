@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import '../assets/css/tailwind.css';
+import Swal from 'sweetalert2';
 import { onMounted } from 'vue';
 
-import type { Animal } from '../types';
-import Swal from 'sweetalert2';
-
+import '../assets/css/tailwind.css';
 import FeedingOverview from '../components/feedingOverview/DailyFeedingOverview.vue';
+import type { Animal } from '../types';
 
 const stateAnimal = useAnimals();
 

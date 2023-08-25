@@ -1,10 +1,8 @@
-import Vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vitest/config'
+import Vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [
-    Vue(),
-  ],
+  plugins: [Vue()],
   test: {
     environment: 'jsdom',
     coverage: {
@@ -33,8 +31,6 @@ export default defineConfig({
       ],
       exclude: ['**/*.stories.ts'],
     },
-    setupFiles: [
-      './testSetupFiles/registerNuxtLink.ts',
-    ],
+    setupFiles: ['./testSetupFiles/registerNuxtLink.ts'],
   },
-})
+});

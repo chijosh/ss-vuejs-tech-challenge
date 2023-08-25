@@ -1,3 +1,22 @@
 {
-    "extends": "@antfu"
+  "extends": ["@antfu", "eslint:recommended"],
+  "plugins": ["prettier", "@typescript-eslint"],
+  "ignorePatterns": ["./node_modules/*"],
+  "rules": {
+    "@typescript-eslint/semi": "off",
+    "no-unexpected-multiline": "error",
+    "prettier/prettier": "error",
+    "vue/html-self-closing": [
+      "error",
+      {
+        "html": {
+          "void": "any",
+          "normal": "any",
+          "component": "any"
+        }
+      }
+    ],
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/multiline-html-element-content-newline": "off"
+  }
 }

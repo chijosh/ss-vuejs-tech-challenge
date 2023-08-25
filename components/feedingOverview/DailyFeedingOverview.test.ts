@@ -1,9 +1,9 @@
-import { vi, describe, expect, test } from 'vitest';
-
 import { mount } from '@vue/test-utils';
-import AnimalFeedingComponent from './DailyFeedingOverview.vue';
-import animalsGet from '../../server/api/animals.get';
 import { log } from 'console';
+import { describe, expect, test, vi } from 'vitest';
+
+import animalsGet from '../../server/api/animals.get';
+import AnimalFeedingComponent from './DailyFeedingOverview.vue';
 
 vi.mock('../../composables/helpers', () => ({
   calculateFoodRequirement: vi.fn().mockReturnValue(5),

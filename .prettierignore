@@ -3,11 +3,6 @@ storybook-static
 .storybook/
 coverage
 .nuxt/
-*.json
 *.md
-.eslintrc
-.prettierrc
 assets/
-*.config.js
-*.config.ts
-plugins/
+node_modules/

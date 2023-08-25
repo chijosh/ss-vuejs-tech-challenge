@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { WeeklyChecks, Days } from '@/types';
-import AnimalInfoRender from '../animalInfoRender/AnimalInfoRender.vue';
-import { useAsset } from '../../composables/handleImage';
+import type { Days, WeeklyChecks } from '@/types';
 import Swal from 'sweetalert2';
+
+import { useAsset } from '../../composables/handleImage';
+import AnimalInfoRender from '../animalInfoRender/AnimalInfoRender.vue';
 
 const animals = useAnimals();
 const routeObject = useRoute();
@@ -12,7 +13,6 @@ const animal = animals.value.find((animal) => animal.id === param._animalsId);
 if (!animal) {
   console.error('Animal not found!');
 }
-
 
 const weeklyChecks: WeeklyChecks = animal?.weeklyChecks || {
   Monday: false,

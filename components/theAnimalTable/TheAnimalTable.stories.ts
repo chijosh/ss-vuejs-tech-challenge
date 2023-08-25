@@ -1,5 +1,6 @@
-import type { Story } from '@storybook/vue3';
 import { fakeAnimal } from '@/helpers/fakeAnimal';
+import type { Story } from '@storybook/vue3';
+
 import TheAnimalTable from './TheAnimalTable.vue';
 
 export default {

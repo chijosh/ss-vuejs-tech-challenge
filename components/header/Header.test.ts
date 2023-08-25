@@ -1,7 +1,9 @@
+import { mount } from '@vue/test-utils';
 import { describe, expect, test } from 'vitest';
 
-import { mount } from '@vue/test-utils';
-import Header from './Header.vue'; // Adjust the path accordingly
+import Header from './Header.vue';
+
+// Adjust the path accordingly
 
 describe('Header component', () => {
   test('renders without crashing', () => {

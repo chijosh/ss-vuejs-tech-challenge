@@ -1,7 +1,8 @@
-import { vi, describe, expect, test, beforeEach, afterEach } from 'vitest';
-import { shallowMount, VueWrapper } from '@vue/test-utils';
-import AnimalProfile from './AnimalProfile.vue';
+import { VueWrapper, shallowMount } from '@vue/test-utils';
 import Swal from 'sweetalert2';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+
+import AnimalProfile from './AnimalProfile.vue';
 
 vi.mock('sweetalert2', () => ({
   fire: vi.fn(),
@@ -47,7 +48,7 @@ const mockAnimal = {
 };
 
 describe.skip('AnimalProfile.vue', () => {
-  let wrapper: VueWrapper<any>;;
+  let wrapper: VueWrapper<any>;
 
   beforeEach(() => {
     wrapper = shallowMount(AnimalProfile, {
@@ -82,8 +83,8 @@ describe.skip('AnimalProfile.vue', () => {
 
   test('updates the weeklyChecks value when a checkbox is clicked', async () => {
     const checkbox = wrapper.find('input[type="checkbox"]');
-    await checkbox.setChecked();
-    expect(checkbox.element.checked).toBe(true);
+    await checkbox.trigger('click');
+    expect((checkbox.element as HTMLInputElement).checked).toBe(true);
   });
 
   test('fires the SweetAlert2 when the schedule is saved', async () => {

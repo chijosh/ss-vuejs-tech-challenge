@@ -1,5 +1,6 @@
 dist
 public
+node_modules/
 
 # ignore all lint errors by the /storybook-static folder
 **/storybook-static

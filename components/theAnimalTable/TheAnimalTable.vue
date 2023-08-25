@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-import type { PropType } from 'vue';
 import type { Animal } from '@/types';
 import Swal from 'sweetalert2';
+import { computed } from 'vue';
+import type { PropType } from 'vue';
+
 import { calculateAgeInYears, calculateFoodRequirement } from '../../composables/helpers';
 
 const props = defineProps({

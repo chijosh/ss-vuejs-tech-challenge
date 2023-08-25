@@ -1,5 +1,6 @@
 <script lang="ts">
 import FeedingOverview from '../../components/feedingOverview/DailyFeedingOverview.vue';
+
 export default {
   name: '_dayOfMonth',
   components: {

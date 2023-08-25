@@ -1,3 +1,14 @@
+<script>
+import 'animate.css';
+import Header from '~/components/header/Header';
+
+export default {
+  components: {
+    Header,
+  },
+};
+</script>
+
 <template>
   <div class="site-wrapper flex flex-col min-h-screen">
     <header>
@@ -11,14 +22,3 @@
     </footer>
   </div>
 </template>
-
-<script>
-import Header from '~/components/header/Header';
-import 'animate.css';
-
-export default {
-  components: {
-    Header,
-  },
-};
-</script>
